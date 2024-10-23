@@ -59,11 +59,12 @@ const Home: React.FC = () => {
       <div style={{ marginTop: '40px', padding: '20px', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '10px' }}>
         <h2 style={{ fontSize: '2em', marginBottom: '20px' }}>Cultural Significance</h2>
         <p style={{ fontSize: '1.2em' }}>
-          <strong>Chinese Culture:</strong> The number <strong>8</strong> is considered very lucky in Chinese culture because it sounds like the word for "prosperity" or "wealth" (發, pronounced "fa"). It’s common for people to seek phone numbers, addresses, or license plates with the number <strong>8</strong>.
+          <strong>Chinese Culture:</strong> The number <strong>8</strong> is considered very lucky in Chinese culture because it sounds like the word for &quot;prosperity&quot; or &quot;wealth&quot; (發, pronounced &quot;fa&quot;). It’s common for people to seek phone numbers, addresses, or license plates with the number <strong>8</strong>.
         </p>
         <p style={{ fontSize: '1.2em' }}>
           <strong>Hinduism and Buddhism:</strong> In Hinduism, there are eight forms of wealth (Ashta Lakshmi), and in Buddhism, there’s the Eightfold Path, which outlines the way to end suffering.
         </p>
+
       </div>
       <h1 style={{ fontSize: '1.5em' }}>Upload Image and Add Watermark</h1>
 
