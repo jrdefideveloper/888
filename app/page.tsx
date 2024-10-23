@@ -5,6 +5,7 @@ import html2canvas from 'html2canvas';
 
 const Home: React.FC = () => {
   const [image, setImage] = useState<string | null>(null);
+  const [selectedFont, setSelectedFont] = useState<string>('Arial'); // Default font
   const canvasRef = useRef<HTMLDivElement>(null);
 
   const backgroundImageUrl = 'https://dd.dexscreener.com/ds-data/tokens/solana/C65t4Bd52R1ZdV1GVzzSyLqphoPrShiajsK5nJBrpump/header.png?size=xl&key=c50d42';
@@ -27,7 +28,7 @@ const Home: React.FC = () => {
 
       if (context) {
         // Set font properties (bigger, bold, and red-orange with opacity)
-        context.font = 'bold 100px serif';  // Make it large and bold
+        context.font = `bold 100px ${selectedFont}`;  // Use selected font
         context.fillStyle = 'rgba(255, 69, 0, 0.5)';  // Red-orange with 50% opacity
 
         // Adjust the position of the watermark
@@ -41,6 +42,10 @@ const Home: React.FC = () => {
         link.click();
       }
     }
+  };
+
+  const handleFontChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedFont(event.target.value); // Update the selected font
   };
 
   return (
@@ -74,6 +79,7 @@ const Home: React.FC = () => {
           Dexscreener
         </a>
       </div>
+
       {/* New Section for Cultural Significance */}
       <div style={{ marginTop: '40px', padding: '20px', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '10px' }}>
         <h2 style={{ fontSize: '2em', marginBottom: '20px' }}>Cultural Significance</h2>
@@ -83,8 +89,8 @@ const Home: React.FC = () => {
         <p style={{ fontSize: '1.2em' }}>
           <strong>Hinduism and Buddhism:</strong> In Hinduism, there are eight forms of wealth (Ashta Lakshmi), and in Buddhism, there’s the Eightfold Path, which outlines the way to end suffering.
         </p>
-
       </div>
+
       <h1 style={{ fontSize: '1.5em' }}>Upload Image and Add Watermark</h1>
 
       <input type="file" accept="image/*" onChange={handleImageUpload} />
@@ -95,16 +101,46 @@ const Home: React.FC = () => {
             <div
               style={{
                 position: 'absolute',
-                bottom: '10px',
-                right: '50px',
+                bottom: '5px',
+                right: '70px',
                 color: 'rgba(255, 69, 0, 0.75)',  // Red-orange, 50% opacity
-                fontSize: '200px',
+                fontSize: '120px',
                 fontWeight: 'bold',
+                fontFamily: selectedFont, // Use selected font for display
+              }}
+            >
+              888
+            </div>
+            <div
+              style={{
+                position: 'absolute',
+                top: '10px',
+                right: '5px',
+                color: 'rgba(255, 69, 0, 0.75)',  // Red-orange, 50% opacity
+                fontSize: '30px',
+                fontWeight: 'bold',
+                fontFamily: selectedFont, // Use selected font for display
               }}
             >
               888
             </div>
           </div>
+
+          {/* Font selection dropdown */}
+          <div style={{ marginTop: '20px' }}>
+            <label htmlFor="fontSelect" style={{ fontSize: '1.2em', color: 'rgba(255, 255, 255, 1)' }}>
+              Select Font for 888:
+            </label>
+            <select id="fontSelect" onChange={handleFontChange} value={selectedFont} style={{ marginLeft: '10px', padding: '5px' }}>
+              <option value="Arial">Arial</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Comic Sans MS">Comic Sans MS</option>
+              <option value="Helvetica">Helvetica</option>
+              <option value="Times New Roman">Times New Roman</option>
+              {/* Add more font options as needed */}
+            </select>
+          </div>
+
           <button
             onClick={addWatermark}
             style={{
@@ -134,8 +170,6 @@ const Home: React.FC = () => {
           </button>
         </div>
       )}
-
-      {/* </div> */}
     </div>
   );
 };
