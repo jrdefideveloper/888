@@ -44,7 +44,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div  style={{
+    <div style={{
       backgroundImage: `url(${backgroundImageUrl})`, // Set the background image for the webpage
       backgroundSize: 'cover', // Cover the whole area
       backgroundPosition: 'center',
@@ -53,10 +53,20 @@ const Home: React.FC = () => {
       padding: '20px', // Optional: Add some padding
     }}
     >
-      
+
       <center><h1 style={{ fontSize: '2em', marginBottom: '20px' }}>Welcome to 888</h1></center>
-      <h1>Upload Image and Add Watermark</h1>
-      
+      {/* New Section for Cultural Significance */}
+      <div style={{ marginTop: '40px', padding: '20px', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '10px' }}>
+        <h2 style={{ fontSize: '2em', marginBottom: '20px' }}>Cultural Significance</h2>
+        <p style={{ fontSize: '1.2em' }}>
+          <strong>Chinese Culture:</strong> The number <strong>8</strong> is considered very lucky in Chinese culture because it sounds like the word for "prosperity" or "wealth" (發, pronounced "fa"). It’s common for people to seek phone numbers, addresses, or license plates with the number <strong>8</strong>.
+        </p>
+        <p style={{ fontSize: '1.2em' }}>
+          <strong>Hinduism and Buddhism:</strong> In Hinduism, there are eight forms of wealth (Ashta Lakshmi), and in Buddhism, there’s the Eightfold Path, which outlines the way to end suffering.
+        </p>
+      </div>
+      <h1 style={{ fontSize: '1.5em' }}>Upload Image and Add Watermark</h1>
+
       <input type="file" accept="image/*" onChange={handleImageUpload} />
       {image && (
         <div>
@@ -75,9 +85,37 @@ const Home: React.FC = () => {
               888
             </div>
           </div>
-          <button onClick={addWatermark}>Download Watermarked Image</button>
+          <button
+            onClick={addWatermark}
+            style={{
+              fontSize: '1.5em', // Button text size
+              marginTop: '20px', // Space above the button
+              padding: '15px 30px', // Increased padding for a larger button
+              borderRadius: '8px', // Rounded corners
+              border: '2px solid rgba(128, 0, 32, 0.75)', // Burgundy border
+              backgroundColor: 'rgba(128, 0, 32, 0.8)', // Darker burgundy background
+              color: 'white', // White text color for better contrast
+              cursor: 'pointer', // Pointer cursor on hover
+              transition: 'background-color 0.3s, color 0.3s, transform 0.2s', // Smooth transitions
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // Shadow for depth
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(128, 0, 32, 1)'; // Darker on hover
+              e.currentTarget.style.color = '#fff'; // Ensure text stays white on hover
+              e.currentTarget.style.transform = 'scale(1.05)'; // Slightly grow on hover
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(128, 0, 32, 0.8)'; // Reset background on mouse out
+              e.currentTarget.style.color = 'white'; // Reset text color on mouse out
+              e.currentTarget.style.transform = 'scale(1)'; // Reset scale on mouse out
+            }}
+          >
+            Download Watermarked Image
+          </button>
         </div>
       )}
+
+      {/* </div> */}
     </div>
   );
 };
