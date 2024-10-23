@@ -55,6 +55,25 @@ const Home: React.FC = () => {
     >
 
       <center><h1 style={{ fontSize: '2em', marginBottom: '20px' }}>Welcome to 888</h1></center>
+      <div style={{ marginTop: '40px', textAlign: 'center' }}>
+        <h2 style={{ color: 'rgba(128, 0, 32, 0.8)' }}>Join abundance and prosperity.</h2>
+        <a
+          href="https://x.com/i/communities/1848939851800056074"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ marginRight: '20px', color: 'rgba(128, 0, 32, 0.8)', textDecoration: 'underline' }}
+        >
+          X Community
+        </a>
+        <a
+          href="https://dexscreener.com/solana/2k94kvqycbyndh91iywduch6qrzclnprtfd5oikpxi9c"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: 'rgba(128, 0, 32, 0.8)', textDecoration: 'underline' }}
+        >
+          Dexscreener
+        </a>
+      </div>
       {/* New Section for Cultural Significance */}
       <div style={{ marginTop: '40px', padding: '20px', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '10px' }}>
         <h2 style={{ fontSize: '2em', marginBottom: '20px' }}>Cultural Significance</h2>
